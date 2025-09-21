@@ -327,5 +327,16 @@
     </div>
     <script src="anim.js"></script>
     <script src="main.js"></script>
+    <script>
+  // Espera a que cargue la página
+  window.addEventListener('load', () => {
+    const titulo = document.querySelector('.titulo');
+    
+    // Desvanece el título después de 10 segundos
+    setTimeout(() => {
+      titulo.style.opacity = '0';
+    }, 10000); // 10000 ms = 10 segundos
+  });
+</script>
   </body>
 </html>

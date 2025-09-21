@@ -40,15 +40,17 @@ body {
 
 }
 .titulo {
-  margin-bottom: 180px;
+  top: 20px; /* posición en la parte superior */
+  left: 50%;
+  transform: translateX(-50%);
   font-family: "Arial Narrow", Arial, sans-serif;
   color: yellow;
   position: absolute;
   font-weight: bold;
   letter-spacing: 10px;
-  opacity: 0;
-  animation: fadeIn 3s ease-in-out forwards;
+  opacity: 1; /* inicia visible */
   text-align: center;
+  transition: opacity 1s ease-in-out;
 }
 @keyframes fadeIn {
   from {
@@ -1672,4 +1674,37 @@ h1 {
 .flower__white-circle {
   background-color: #fff799; /* Centro más cálido */
   box-shadow: 0 0 30px rgba(255, 255, 150, 0.9);
+}
+.titulo-romantico {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: #ffd700;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.8),
+               0 0 30px rgba(255, 215, 0, 0.6);
+  font-family: "Dancing Script", cursive;
+  text-align: center;
+  animation: glow 3s ease-in-out infinite alternate;
+  z-index: 10;
+  transition: opacity 1s ease;
+}
+
+/* Responsive para móviles */
+@media (max-width: 600px) {
+  .titulo-romantico {
+    font-size: 1.5rem;
+    top: 15px;
+  }
+}
+
+/* Animación de brillo */
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #ffd700, 0 0 20px #ffae00;
+  }
+  to {
+    text-shadow: 0 0 25px #fff176, 0 0 45px #ffd700;
+  }
 }

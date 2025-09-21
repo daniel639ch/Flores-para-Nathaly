@@ -53,7 +53,7 @@ function updateLyrics() {
     // Limpiar contenedor antes de agregar la nueva frase
     lyrics.innerHTML = "";
 
-    // Crear span para la frase actual (romántico, karaoke)
+    // Crear span para la frase actual (romántico + efecto pulse)
     var currentSpan = document.createElement("span");
     currentSpan.textContent = line.text;
     currentSpan.style.display = "block";
@@ -61,11 +61,12 @@ function updateLyrics() {
     currentSpan.style.margin = "20px 0";
     currentSpan.style.fontSize = "1.8em";
     currentSpan.style.fontWeight = "bold";
-    currentSpan.style.color = "#FF69B4"; // rosa romántico
-    currentSpan.style.textShadow =
-      "0 0 8px #FFD1DC, 0 0 15px #FFB6C1, 0 0 25px #FFF";
+    currentSpan.style.color = "#f7b5caff"; // rosa elegante
     currentSpan.style.opacity = "0";
-    currentSpan.style.transition = "opacity 1.5s ease-in";
+    currentSpan.style.transition = "opacity 1.2s ease-in-out";
+
+    // Animación de latido
+    currentSpan.style.animation = "pulse 2.5s ease-in-out infinite";
 
     lyrics.appendChild(currentSpan);
 
@@ -77,6 +78,17 @@ function updateLyrics() {
 
   requestAnimationFrame(updateLyrics);
 }
+
+// Animación CSS inyectada desde JS para compatibilidad
+var style = document.createElement("style");
+style.innerHTML = `
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+`;
+document.head.appendChild(style);
 
 // Inicia animación
 updateLyrics();
